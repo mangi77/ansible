@@ -1,0 +1,18 @@
+---
+- hosts: web
+  become: true
+  tasks:
+    - name: Create new user1
+      user:
+        name: rv
+        state: present
+
+    - name: Create new user2
+      user:
+        name: poal
+        state: present
+
+    - name: Create new user3
+      user:
+        name: ak
+        state: present
