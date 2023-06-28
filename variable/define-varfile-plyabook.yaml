@@ -1,0 +1,13 @@
+- name: Add several users
+  hosts: web
+  gather_facts: true
+  become: true 
+  become_user: root
+  vars_files:
+    - /home/mangi/ansible/vars.yaml #path of variable.yaml file
+  tasks:
+    - name: create multipal users
+      user:
+        name: "{{ item.name }}"
+        state: present
+      loop: "{{ users }}"
